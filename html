@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Grid Layout</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: grid;
+            grid-template-areas:
+                'header header'
+                'sidebar main'
+                'footer footer';
+            grid-template-rows: auto 1fr auto;
+            grid-template-columns: 200px 1fr;
+            min-height: 100vh;
+        }
+        header {
+            grid-area: header;
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        sidebar {
+            grid-area: sidebar;
+            background-color: #f4f4f4;
+            padding: 1rem;
+        }
+        main {
+            grid-area: main;
+            padding: 1rem;
+        }
+        footer {
+            grid-area: footer;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+        @media (max-width: 600px) {
+            .container {
+                grid-template-areas:
+                    'header'
+                    'main'
+                    'sidebar'
+                    'footer';
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 1fr auto auto;
+            }
+            sidebar {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Responsive Grid Layout</h1>
+        </header>
+        <sidebar>
+            <h2>Sidebar</h2>
+            <p>Some sidebar content...</p>
+        </sidebar>
+        <main>
+            <h2>Main Content</h2>
+            <p>Some main content...</p>
+        </main>
+        <footer>
+            &copy; 2024 Responsive Design
+        </footer>
+    </div>
+</body>
+</html>
